@@ -1,0 +1,94 @@
+# Exercise 1: Favorite Numbers
+my_fav_numbers = {3, 7, 21}
+my_fav_numbers.add(42)
+my_fav_numbers.add(100)
+my_fav_numbers.remove(100)
+
+friend_fav_numbers = {5, 12, 21}
+our_fav_numbers = my_fav_numbers.union(friend_fav_numbers)
+print("My favorite numbers:", my_fav_numbers)
+print("Our favorite numbers:", our_fav_numbers)
+
+# Exercise 2: Tuple
+numbers = (1, 2, 3, 4)
+try:
+	numbers += (5, 6)
+	print("A new tuple can be created by concatenation:", numbers)
+except TypeError:
+	print("Tuples are immutable and cannot be changed.")
+
+# Exercise 3: List Manipulation
+basket = ["Banana", "Apples", "Oranges", "Blueberries"]
+basket.remove("Banana")
+basket.remove("Blueberries")
+basket.append("Kiwi")
+basket.insert(0, "Apples")
+print("Apples count:", basket.count("Apples"))
+basket.clear()
+print("Final basket:", basket)
+
+# Exercise 4: Floats
+# A float stores a number with a decimal part; an integer stores a whole number.
+mixed_numbers = [number / 2 for number in range(3, 11)]
+print("Mixed numbers:", mixed_numbers)
+
+# Exercise 5: For Loop
+print("Numbers from 1 to 20:")
+for number in range(1, 21):
+	print(number)
+
+print("Numbers at even indexes:")
+for index, number in enumerate(range(1, 21)):
+	if index % 2 == 0:
+		print(number)
+
+# Exercise 6: While Loop
+while True:
+	user_name = input("Enter your name: ").strip()
+	if not user_name.isdigit() and len(user_name) >= 3:
+		print("Thank you")
+		break
+	print("Please enter a proper name with at least 3 letters.")
+
+# Exercise 7: Favorite Fruits
+favorite_fruits = input("Enter your favorite fruits, separated by spaces: ").lower().split()
+chosen_fruit = input("Enter the name of a fruit: ").strip().lower()
+if chosen_fruit in favorite_fruits:
+	print("You chose one of your favorite fruits! Enjoy!")
+else:
+	print("You chose a new fruit. I hope you enjoy it!")
+
+# Exercise 8: Pizza Toppings
+toppings = []
+while True:
+	topping = input("Enter a pizza topping, or type 'quit': ").strip()
+	if topping.lower() == "quit":
+		break
+	toppings.append(topping)
+	print(f"Adding {topping} to your pizza.")
+
+total_price = 10 + len(toppings) * 2.50
+print("Toppings:", toppings)
+print(f"Total cost: ${total_price:.2f}")
+
+# Exercise 9: Cinemax Tickets
+family_size = int(input("How many family members need tickets? "))
+total_cost = 0
+for member_number in range(1, family_size + 1):
+	age = int(input(f"Enter the age of person {member_number}: "))
+	if age < 3:
+		total_cost += 0
+	elif age <= 12:
+		total_cost += 10
+	else:
+		total_cost += 15
+print(f"Total ticket cost: ${total_cost:.2f}")
+
+# Bonus: restricted movie attendees
+teenager_count = int(input("How many people want to see the restricted movie? "))
+attendees = []
+for person_number in range(1, teenager_count + 1):
+	age = int(input(f"Enter the age of person {person_number}: "))
+	if 16 <= age <= 21:
+		attendees.append(age)
+print("Allowed attendees:", attendees)
