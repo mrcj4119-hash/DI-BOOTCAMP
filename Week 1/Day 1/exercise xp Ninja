@@ -1,6 +1,8 @@
-# python can be called from any folder because the folder containing its executable is listed in the PATH environment variable.On Windows, run `python` in the terminal to open the Python console.
+#  python can be called from any folder because the folder containing
+# its executable is listed in the PATH environment variable.
+# On Windows, run `python` in the terminal to open the Python console.
 
-# `py` is the Windows Python launcher and can also open the console.
+#  `py` is the Windows Python launcher and can also open the console.
 
 
 # 3 <= 3 < 9                         -> True
@@ -19,6 +21,7 @@ print("y is", y)
 print("a:", a)
 print("b:", b)
 
+
 my_text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -28,6 +31,7 @@ esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum."""
 print("Number of characters:", len(my_text))
+
 
 longest_sentence = ""
 while True:

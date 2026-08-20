@@ -1,17 +1,15 @@
-import math
-import random
-import re
 
-# Exercise 1: Formula
+
+
 comma_separated_values = input("Enter comma-separated values for D: ")
 formula_results = []
 for value in comma_separated_values.split(","):
 	d = float(value.strip())
-	q = math.sqrt((2 * 50 * d) / 30)
+	q = (2 * 50 * d) / 30
 	formula_results.append(str(int(q)))
 print(",".join(formula_results))
 
-# Exercise 2: List of integers
+
 numbers = [3, 47, 99, -80, 22, 97, 54, -23, 5, 7]
 print("Numbers:", numbers)
 print("Descending:", sorted(numbers, reverse=True))
@@ -27,7 +25,7 @@ print("Average:", sum(numbers) / len(numbers))
 print("Largest:", max(numbers))
 print("Smallest:", min(numbers))
 
-# Exercise 2 bonus: calculate without sum(), max(), or min().
+
 manual_sum = 0
 manual_largest = numbers[0]
 manual_smallest = numbers[0]
@@ -41,8 +39,7 @@ print("Bonus sum:", manual_sum)
 print("Bonus average:", manual_sum / len(numbers))
 print("Bonus largest:", manual_largest)
 print("Bonus smallest:", manual_smallest)
-
-# Exercise 2 bonuses: user and random list variants.
+	  
 user_numbers = []
 for position in range(10):
 	while True:
@@ -60,7 +57,7 @@ print("Random list minimum:", min(random_numbers))
 print("Random list maximum:", max(random_numbers))
 print("The code works for any list length because it uses len(numbers).")
 
-# Exercise 3: Working on a paragraph
+
 paragraph = (
 	"Learning Python rewards curiosity. Small experiments turn abstract ideas "
 	"into practical understanding. Each mistake gives you a clue about what to "
@@ -79,7 +76,7 @@ print("Non-whitespace characters:", non_whitespace_characters)
 print("Average words per sentence:", len(words) / len(sentences))
 print("Non-unique words:", len(words) - len(unique_words))
 
-# Exercise 4: Frequency of the words
+
 text = input("Enter a sentence to count word frequencies: ")
 frequency = {}
 for word in text.split():

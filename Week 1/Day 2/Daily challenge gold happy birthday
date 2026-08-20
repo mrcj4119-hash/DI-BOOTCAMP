@@ -1,6 +1,3 @@
-
-
-
 birthdate_text = input("Enter your birthdate (DD/MM/YYYY): ")
 birthdate = datetime.strptime(birthdate_text, "%d/%m/%Y").date()
 today = date.today()
@@ -18,7 +15,3 @@ cake = f"""       ___{candles}___
 	 |                 |
 	 ~~~~~~~~~~~~~~~~~~~"""
 
-print(cake)
-if birthdate.year % 4 == 0 and (birthdate.year % 100 != 0 or birthdate.year % 400 == 0):
-	print()
-	print(cake)

@@ -1,5 +1,9 @@
 
 
+
+from random import random
+
+
 user_string = input("Enter a string: ")
 
 if len(user_string) < 10:
