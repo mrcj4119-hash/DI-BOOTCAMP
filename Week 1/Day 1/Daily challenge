@@ -1,4 +1,4 @@
-import random
+
 
 user_string = input("Enter a string: ")
 
