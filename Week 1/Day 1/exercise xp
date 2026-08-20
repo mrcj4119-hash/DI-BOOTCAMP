@@ -1,5 +1,3 @@
-"""Week 1 Day 1 exercises."""
-
 # Exercise 1
 print("Hello world\n" * 4, end="")
 
