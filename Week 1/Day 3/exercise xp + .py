@@ -1,11 +1,10 @@
 
-# Exercise 1: Student Grade Summary
 student_grades = {
 	"Alice": [88, 92, 100],
-	"Bob": [75, 78, 80],
-	"Charlie": [92, 90, 85],
-	"Dana": [83, 88, 92],
-	"Eli": [78, 80, 72],
+	"Peris": [75, 78, 80],
+	"Chacha": [92, 90, 85],
+	"Chebby": [83, 88, 92],
+	"Liz": [78, 80, 72],
 }
 
 student_averages = {}
@@ -37,8 +36,6 @@ for name in student_grades:
 		f"Letter Grade = {student_letter_grades[name]}"
 	)
 
-
-# Exercise 2: Advanced Data Manipulation and Analysis
 sales_data = [
 	{"customer_id": 1, "product": "Smartphone", "price": 600, "quantity": 1, "date": "2023-04-03"},
 	{"customer_id": 2, "product": "Laptop", "price": 1200, "quantity": 1, "date": "2023-04-04"},

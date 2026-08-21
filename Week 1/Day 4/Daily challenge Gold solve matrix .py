@@ -8,7 +8,6 @@ $a
 #t%
 """
 
-
 matrix = [list(row) for row in MATRIX_STR.strip("\n").splitlines()]
 column_count = max(len(row) for row in matrix)
 decoded_message = ""
