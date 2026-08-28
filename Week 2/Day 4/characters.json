@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Ayla",
+        "age": "20",
+        "attributes": {
+            "strength": 9,
+            "dexterity": 8,
+            "constitution": 10,
+            "intelligence": 11,
+            "wisdom": 11,
+            "charisma": 15
+        }
+    }
+]

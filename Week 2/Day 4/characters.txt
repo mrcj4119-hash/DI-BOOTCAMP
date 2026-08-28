@@ -1,0 +1,8 @@
+Ayla (age 20)
+  Strength: 9
+  Dexterity: 8
+  Constitution: 10
+  Intelligence: 11
+  Wisdom: 11
+  Charisma: 15
+
