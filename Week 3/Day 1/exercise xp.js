@@ -17,7 +17,7 @@ console.log(people.indexOf("Foo"));
 const last = people[people.length - 1];
 
 // Part II - Loops
-// 1. Iterate through array
+// 1. Iterate through arrayr
 for (let person of people) {
   console.log(person);
 }
@@ -98,4 +98,25 @@ for (let key in family) {
   console.log(family[key]);
 }
 
+
+const details = {
+  my: 'name',
+  is: 'Rudolf',
+  the: 'reindeer'
+};
+
+let sentence = "";
+for (let key in details) {
+  sentence += `${key} ${details[key]} `;
+}
+console.log(sentence.trim());
+
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+
+const secretSociety = names
+  .map(name => name[0])
+  .sort()
+  .join("");
+
+console.log(secretSociety); // "ABJKPS"
 
