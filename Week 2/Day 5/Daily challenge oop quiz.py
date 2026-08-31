@@ -3,13 +3,13 @@ import random
 
 QUIZ_ANSWERS = {
 	"What is a class?": "A blueprint that defines the data and behavior of objects.",
-	"What is an instance?": "A concrete object created from a class.",
+	"What is an instance?": "An object created from a class.",
 	"What is encapsulation?": "Bundling data and methods together while controlling access to them.",
 	"What is abstraction?": "Hiding implementation details and exposing only essential features.",
-	"What is inheritance?": "A class receiving attributes and methods from another class.",
+	"What is inheritance?": "A class receiving attributes and methods or behaviors from another class.",
 	"What is multiple inheritance?": "A class inheriting from more than one parent class.",
 	"What is polymorphism?": "Different object types responding to the same method interface in their own way.",
-	"What is method resolution order or MRO?": "The order Python follows to find methods in a class hierarchy.",
+	"What is method resolution order or MRO?": "The order Python follows to find methods in a class rank.",
 }
 
 
