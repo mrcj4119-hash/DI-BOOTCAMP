@@ -31,7 +31,10 @@ function compareBMI(personA, personB) {
 }
 
 compareBMI(person1, person2);
+<<<<<<< HEAD
 
+=======
+>>>>>>> d21c5e28356d1e77c4b16174d1ea1e976ce11fe3
 function findAverage(gradesList) {
   let total = 0;
 
