@@ -1,4 +1,4 @@
-// Exercise 1: Checking the BMI
+
 const person1 = {
   fullName: "John Doe",
   mass: 78,
@@ -31,8 +31,6 @@ function compareBMI(personA, personB) {
 }
 
 compareBMI(person1, person2);
-
-// Exercise 2: Grade Average
 function findAverage(gradesList) {
   let total = 0;
 
