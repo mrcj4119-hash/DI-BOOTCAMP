@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6: Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .calendar-container {
+            margin: 20px 0;
+            display: inline-block;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercise 6: Calendar Generator</h1>
+    <div id="calendar" class="calendar-container"></div>
+
+    <script src="exercise xp ninja.js"></script>
+    <script>
+        // Create and display calendar for September 2012
+        const calendar = createCalendar(2012, 9);
+        document.getElementById('calendar').appendChild(calendar);
+
+        // You can also test with other months/years:
+        // const calendar2 = createCalendar(2024, 12);
+        // document.getElementById('calendar').appendChild(calendar2);
+    </script>
+</body>
+</html>
