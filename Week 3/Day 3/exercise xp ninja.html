@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise XP Ninja</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+
+      .tip-section {
+        margin-bottom: 20px;
+      }
+
+      #totalTip {
+        display: none;
+        margin-top: 10px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tip-section">
+      <label for="billAmt">Bill Amount:</label>
+      <input type="number" id="billAmt" />
+
+      <label for="serviceQual">Service Quality:</label>
+      <input type="number" id="serviceQual" step="0.1" min="0" />
+
+      <label for="numOfPeople">Number of People:</label>
+      <input type="number" id="numOfPeople" min="1" />
+
+      <button id="calculate" type="button">Calculate Tip</button>
+
+      <div id="totalTip">
+        <p>Tip per person: <span id="tip"></span></p>
+      </div>
+    </div>
+
+    <form id="emailForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+      <button type="submit">Validate Email</button>
+    </form>
+
+    <button id="getLocation">Get My Location</button>
+    <p id="locationResult"></p>
+
+    <script src="exercise xp ninja.js"></script>
+  </body>
+</html>
