@@ -1,4 +1,3 @@
-
 // #1
 // funcOne() alerts "inside the funcOne function 3" because the local let
 // starts at 5 and is reassigned to 3 inside the if block.
