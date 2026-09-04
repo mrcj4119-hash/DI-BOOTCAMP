@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring Squares</title>
+    <link rel="stylesheet" href="Mini-project coloring Game.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="intro">
+            <div>
+                <p class="eyebrow">Creative playground</p>
+                <h1>Coloring <span>Squares</span></h1>
+                <p class="subtitle">Pick a color, then paint your own tiny world.</p>
+            </div>
+            <div class="stats" aria-live="polite">
+                <strong id="square-count">0</strong>
+                <span>squares painted</span>
+            </div>
+        </header>
+
+        <section class="workspace" aria-label="Coloring workspace">
+            <aside class="palette-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">01 / Palette</p>
+                        <h2>Choose a color</h2>
+                    </div>
+                    <span class="selected-preview" id="selected-preview" aria-hidden="true"></span>
+                </div>
+                <div class="palette" id="palette" aria-label="Color palette"></div>
+                <label class="custom-color">
+                    <span>Custom color</span>
+                    <input id="custom-color" type="color" value="#ff6b4a" aria-label="Choose a custom color">
+                </label>
+                <div class="controls">
+                    <label for="grid-size">Grid size <output id="grid-size-value">20 x 20</output></label>
+                    <input id="grid-size" type="range" min="10" max="32" value="20">
+                    <button id="clear-button" type="button">Clear canvas</button>
+                </div>
+            </aside>
+
+            <section class="canvas-panel">
+                <div class="canvas-heading">
+                    <div>
+                        <p class="eyebrow">02 / Canvas</p>
+                        <h2>Make it yours</h2>
+                    </div>
+                    <span class="draw-state" id="draw-state">Ready to draw</span>
+                </div>
+                <div class="canvas-wrap">
+                    <div class="canvas" id="canvas" role="grid" aria-label="Blank coloring grid"></div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script src="Mini-project coloring Game.js"></script>
+</body>
+</html>

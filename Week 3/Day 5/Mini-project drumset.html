@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drumset</title>
+    <link rel="stylesheet" href="Mini-project drumset.css">
+</head>
+<body>
+    <main class="drum-app">
+        <header class="header">
+            <div>
+                <p class="eyebrow">Rhythm lab / 01</p>
+                <h1>Chacha's Pro Drums <em>set.</em></h1>
+                <p class="subtitle">Tap a pad or use the matching key to build a beat.</p>
+            </div>
+            <label class="volume-control" for="volume">
+                <span>Volume</span>
+                <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8">
+            </label>
+        </header>
+
+        <section class="drum-machine" aria-label="Drum machine">
+            <div class="machine-topline">
+                <span class="led" aria-hidden="true"></span>
+                <span>LIVE SESSION</span>
+                <span class="status" id="status" aria-live="polite">Ready</span>
+            </div>
+            <div class="pads" id="pads"></div>
+            <p class="hint">Click the pads or press their keyboard keys</p>
+        </section>
+    </main>
+    <script src="Mini-project drumset.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="Daily challenge To do list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <main class="todo-app">
+        <p class="eyebrow">Daily focus</p>
+        <h1>To Do List</h1>
+        <p class="subtitle">Make space for what matters today.</p>
+
+        <form id="task-form" class="task-form">
+            <label class="sr-only" for="task-input">New task</label>
+            <input id="task-input" type="text" placeholder="Enter a new task..." autocomplete="off">
+            <button type="submit">Submit</button>
+        </form>
+
+        <section class="task-section" aria-labelledby="tasks-heading">
+            <div class="section-heading">
+                <h2 id="tasks-heading">Your tasks</h2>
+                <span id="task-count">0 tasks</span>
+            </div>
+            <div class="listTasks"></div>
+            <p id="empty-state" class="empty-state">Your list is clear. Add something to do.</p>
+        </section>
+    </main>
+    <script src="Daily challenge To do list.js"></script>
+</body>
+</html>

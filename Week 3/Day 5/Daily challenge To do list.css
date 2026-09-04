@@ -1,0 +1,37 @@
+:root {
+    --ink: #1f2933;
+    --muted: #718096;
+    --paper: #fffdf8;
+    --line: #e8e2d8;
+    --accent: #e85d4a;
+    --accent-dark: #c94536;
+    --shadow: 0 24px 70px rgb(78 59 43 / 14%);
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { display: grid; min-height: 100vh; margin: 0; padding: 32px 16px; place-items: center; color: var(--ink); background: #f4efe7; }
+body::before { position: fixed; inset: 0; z-index: -1; background-image: radial-gradient(#dfd5c7 1px, transparent 1px); background-size: 18px 18px; content: ""; opacity: 0.5; }
+.todo-app { width: min(100%, 620px); padding: clamp(32px, 7vw, 68px); background: var(--paper); box-shadow: var(--shadow); }
+.eyebrow { margin: 0 0 14px; color: var(--accent); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(3rem, 8vw, 5.6rem); line-height: 0.9; letter-spacing: -0.06em; }
+.subtitle { margin: 20px 0 36px; color: var(--muted); }
+.task-form { display: flex; gap: 10px; }
+.task-form input { min-width: 0; flex: 1; padding: 15px 16px; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); background: #fff; font: inherit; outline: none; }
+.task-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgb(232 93 74 / 14%); }
+.task-form button { padding: 0 22px; border: 0; border-radius: 3px; color: #fff; background: var(--accent); font: inherit; font-weight: 700; cursor: pointer; transition: background 120ms ease, transform 120ms ease; }
+.task-form button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.task-section { margin-top: 42px; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+h2 { margin: 0; font-size: 1.15rem; }
+#task-count { color: var(--muted); font-size: 0.78rem; }
+.listTasks { display: grid; }
+.task { display: flex; align-items: center; gap: 12px; min-height: 62px; border-bottom: 1px solid var(--line); }
+.task-checkbox { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+.task-label { flex: 1; color: var(--ink); overflow-wrap: anywhere; cursor: pointer; }
+.task.done .task-label { color: var(--accent); text-decoration: line-through; text-decoration-thickness: 2px; }
+.delete-task { width: 32px; height: 32px; border: 0; color: var(--muted); background: transparent; cursor: pointer; }
+.delete-task:hover, .delete-task:focus-visible { color: var(--accent); outline: none; }
+.empty-state { margin: 22px 0 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+@media (max-width: 480px) { .task-form { flex-direction: column; } .task-form button { min-height: 48px; } }

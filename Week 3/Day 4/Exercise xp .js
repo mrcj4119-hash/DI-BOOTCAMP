@@ -1,4 +1,3 @@
-// Exercise 1: Scope
 
 // #1
 // funcOne() alerts "inside the funcOne function 3" because the local let
@@ -23,22 +22,17 @@
 // The if block alerts 5 because it has its own block-scoped a. The following
 // alert is outside that block and alerts 2. Changing either let to const gives
 // the same output because neither variable is reassigned.
-
-// Exercise 2: Ternary operator
 const winBattle = () => true;
 const experiencePoints = winBattle() ? 10 : 1;
 console.log(experiencePoints);
 
-// Exercise 3: Is it a string?
 const isString = value => typeof value === "string";
 console.log(isString("hello"));
 console.log(isString([1, 2, 4, 0]));
 
-// Exercise 4: Find the sum
 const sum = (firstNumber, secondNumber) => firstNumber + secondNumber;
 console.log(sum(3, 7));
 
-// Exercise 5: Kg and grams
 function kilogramsToGrams(weightInKilograms) {
 	return weightInKilograms * 1000;
 }
@@ -49,7 +43,6 @@ const kilogramsToGramsExpression = function (weightInKilograms) {
 };
 console.log(kilogramsToGramsExpression(2));
 
-// A function declaration is hoisted; a function expression is assigned to a variable at runtime.
 const kilogramsToGramsArrow = weightInKilograms => weightInKilograms * 1000;
 console.log(kilogramsToGramsArrow(2));
 
@@ -63,14 +56,12 @@ const addDomMessage = message => {
 	document.body.appendChild(messageElement);
 };
 
-// Exercise 6: Fortune teller
 (function (numberOfChildren, partnerName, geographicLocation, jobTitle) {
 	addDomMessage(
 		`You will be a ${jobTitle} in ${geographicLocation}, and married to ${partnerName} with ${numberOfChildren} kids.`
 	);
 })(3, "Alex", "Paris", "web developer");
 
-// Exercise 7: Welcome
 (function (userName) {
 	if (typeof document === "undefined") {
 		return;
@@ -95,7 +86,6 @@ const addDomMessage = message => {
 	navbar.appendChild(userProfile);
 })("John");
 
-// Exercise 8: Juice Bar, Part I
 function makeJuicePartOne(size) {
 	function addIngredients(firstIngredient, secondIngredient, thirdIngredient) {
 		addDomMessage(
@@ -108,7 +98,6 @@ function makeJuicePartOne(size) {
 
 makeJuicePartOne("medium");
 
-// Exercise 8: Juice Bar, Part II
 function makeJuice(size) {
 	const ingredients = [];
 
