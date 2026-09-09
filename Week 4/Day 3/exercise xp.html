@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP and Forms</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 2rem auto;
+      max-width: 42rem;
+      padding: 0 1rem;
+    }
+
+    form {
+      border: 1px solid #ccc;
+      margin: 1rem 0 2rem;
+      padding: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 0.75rem;
+    }
+
+    input[type="text"],
+    textarea {
+      box-sizing: border-box;
+      display: block;
+      margin-top: 0.25rem;
+      padding: 0.5rem;
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 8rem;
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTTP and Forms</h1>
+
+  <h2>Exercise 1: GET</h2>
+  <p>After submitting, the name and message appear in the URL query string.</p>
+  <form action="exercise xp.html" method="get">
+    <label for="get-name">Name</label>
+    <input id="get-name" name="name" type="text" required>
+
+    <label for="get-message">Message</label>
+    <textarea id="get-message" name="message" required></textarea>
+
+    <input type="submit" value="Send">
+  </form>
+
+  <h2>Exercise 2: POST</h2>
+  <p>After submitting, the form data is sent in the request body and can be viewed in DevTools Network tab.</p>
+  <form action="exercise xp.html" method="post">
+    <label for="post-name">Name</label>
+    <input id="post-name" name="name" type="text" required>
+
+    <label for="post-message">Message</label>
+    <textarea id="post-message" name="message" required></textarea>
+
+    <input type="submit" value="Send">
+  </form>
+
+  <h2>Exercise 3: JSON Mario</h2>
+  <p>Open the browser console to see the compact and pretty-printed JSON output.</p>
+
+  <script src="exercise xp.js"></script>
+</body>
+</html>

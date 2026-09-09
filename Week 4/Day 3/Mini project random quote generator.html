@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20222b;
+      --muted: #6d7280;
+      --paper: #fffdf8;
+      --accent: #e85d75;
+      --accent-dark: #bd3652;
+      --line: #e8e0d7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8eee5, #e7f1ef);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 52rem;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 0.95;
+      margin-bottom: 2rem;
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+    }
+
+    .quote-card,
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 1rem 3rem #604a3514;
+      padding: 2rem;
+    }
+
+    .quote-card {
+      margin-bottom: 1.5rem;
+      min-height: 15rem;
+    }
+
+    #quote-text {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    #quote-author {
+      color: var(--accent-dark);
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .actions,
+    .stats,
+    .panels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .actions {
+      margin-bottom: 1.5rem;
+    }
+
+    button,
+    input {
+      border: 1px solid var(--line);
+      font: inherit;
+      padding: 0.7rem 0.9rem;
+    }
+
+    button {
+      background: var(--ink);
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background: var(--accent-dark);
+    }
+
+    .stats button {
+      background: white;
+      color: var(--ink);
+    }
+
+    .stats output {
+      color: var(--accent-dark);
+      font-weight: bold;
+    }
+
+    .panel {
+      flex: 1 1 20rem;
+      margin-top: 1.5rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      background: white;
+      width: 100%;
+    }
+
+    .filter-navigation {
+      align-items: center;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    #filter-status {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 36rem) {
+      body {
+        padding-top: 2rem;
+      }
+
+      .quote-card,
+      .panel {
+        padding: 1.25rem;
+      }
+
+      .filter-navigation button {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Random thoughts.</h1>
+
+    <section class="quote-card" aria-live="polite">
+      <p id="quote-text">Press the button to find a quote.</p>
+      <p id="quote-author"></p>
+    </section>
+
+    <div class="actions">
+      <button id="generate-button" type="button">Generate Quote</button>
+      <button id="like-button" type="button">Like <span id="like-count">0</span></button>
+    </div>
+
+    <div class="stats" aria-live="polite">
+      <button id="characters-button" type="button">Characters <output id="characters-result">-</output></button>
+      <button id="characters-no-spaces-button" type="button">Characters without spaces <output id="characters-no-spaces-result">-</output></button>
+      <button id="words-button" type="button">Words <output id="words-result">-</output></button>
+    </div>
+
+    <div class="panels">
+      <section class="panel">
+        <h2>Add a quote</h2>
+        <form id="add-quote-form">
+          <label for="new-quote">Quote</label>
+          <input id="new-quote" name="quote" type="text" required>
+          <label for="new-author">Author</label>
+          <input id="new-author" name="author" type="text" required>
+          <button type="submit">Add Quote</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Find an author</h2>
+        <form id="filter-form">
+          <label for="author-filter">Author name</label>
+          <input id="author-filter" name="author" type="text" required>
+          <button type="submit">Filter Quotes</button>
+        </form>
+        <p id="filter-status" aria-live="polite"></p>
+        <div class="filter-navigation">
+          <button id="previous-button" type="button">Previous</button>
+          <button id="next-button" type="button">Next</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="Mini project random quote generator.js"></script>
+</body>
+</html>
