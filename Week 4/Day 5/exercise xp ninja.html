@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Spark | Giphy Search</title>
+    <style>
+        :root {
+            --ink: #17213b;
+            --muted: #68718d;
+            --pink: #ff4f9a;
+            --orange: #ff9f43;
+            --cyan: #30c9d6;
+            --cream: #fffaf4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255, 214, 94, 0.8), transparent 28%),
+                radial-gradient(circle at 90% 20%, rgba(255, 104, 172, 0.65), transparent 30%),
+                linear-gradient(135deg, #c9f7f0 0%, #e7d8ff 52%, #fff0c5 100%);
+            color: var(--ink);
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 3rem 1.25rem;
+        }
+
+        main {
+            margin: 0 auto;
+            max-width: 1120px;
+        }
+
+        header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .eyebrow {
+            color: #d93478;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            letter-spacing: -0.05em;
+            line-height: 0.95;
+            margin: 0.55rem 0 0.8rem;
+        }
+
+        header p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin: 0 auto;
+            max-width: 560px;
+        }
+
+        .search-panel {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            box-shadow: 0 20px 55px rgba(52, 43, 94, 0.16);
+            margin: 0 auto 2rem;
+            max-width: 780px;
+            padding: 1.25rem;
+        }
+
+        form {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        label {
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            left: -9999px;
+            position: absolute;
+        }
+
+        input,
+        button {
+            border: 0;
+            border-radius: 14px;
+            font: inherit;
+            min-height: 52px;
+            padding: 0.75rem 1rem;
+        }
+
+        input {
+            background: var(--cream);
+            border: 2px solid transparent;
+            color: var(--ink);
+            flex: 1;
+            min-width: 0;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 4px rgba(48, 201, 214, 0.18);
+        }
+
+        button {
+            color: white;
+            cursor: pointer;
+            font-weight: 800;
+            transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+
+        button:hover {
+            box-shadow: 0 8px 18px rgba(23, 33, 59, 0.2);
+            transform: translateY(-2px);
+        }
+
+        form button {
+            background: linear-gradient(135deg, var(--pink), #ff7466);
+        }
+
+        #delete-gifs {
+            background: var(--ink);
+            display: block;
+            margin: 0 auto 1.5rem;
+        }
+
+        #gif-results {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            min-height: 160px;
+        }
+
+        #gif-results img {
+            aspect-ratio: 1 / 1;
+            background: rgba(255, 255, 255, 0.5);
+            border: 5px solid white;
+            border-radius: 18px;
+            box-shadow: 0 12px 24px rgba(52, 43, 94, 0.14);
+            object-fit: cover;
+            width: 100%;
+            transition: transform 180ms ease;
+        }
+
+        #gif-results img:hover {
+            transform: rotate(-2deg) scale(1.04);
+        }
+
+        #gif-results:not(:has(img)) {
+            align-items: center;
+            color: var(--muted);
+            display: grid;
+            font-size: 1.05rem;
+            justify-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 2rem 1rem;
+            }
+
+            form {
+                flex-direction: column;
+            }
+
+            #gif-results {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="eyebrow">Giphy playground</div>
+            <h1>Find your happy GIF.</h1>
+            <p>Type a mood, moment, or inside joke and let the internet bring the motion.</p>
+        </header>
+        <section class="search-panel" aria-label="GIF search controls">
+            <form id="gif-form">
+                <label for="category">GIF category</label>
+                <input id="category" name="category" type="text" placeholder="Try: dancing, cats, celebration..." required>
+                <button type="submit">Search GIFs</button>
+            </form>
+        </section>
+        <button id="delete-gifs" type="button">Clear gallery</button>
+        <section id="gif-results" aria-live="polite">Your GIF gallery is ready.</section>
+    </main>
+    <script src="exercise xp ninja.js"></script>
+</body>
+</html>
