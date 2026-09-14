@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Character Archive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root { --blue: #287dcc; --navy: #101722; --muted: #647180; --panel: #101722; }
+        * { box-sizing: border-box; }
+        body { min-height: 100vh; margin: 0; display: grid; place-items: center; color: var(--navy); font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; background: #fff; background-image: linear-gradient(135deg, rgba(40,125,204,.08), transparent 40%), linear-gradient(315deg, rgba(16,23,34,.05), transparent 45%); }
+        main { width: min(92vw, 780px); padding: 2.5rem 1rem; text-align: center; }
+        .kicker { margin: 0 0 .8rem; color: var(--blue); font-size: .72rem; font-weight: 900; letter-spacing: .3em; text-transform: uppercase; }
+        .brand { margin: 0 0 2rem; color: #0b1018; font: 700 clamp(4rem, 14vw, 8rem)/.76 Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; letter-spacing: .03em; text-shadow: 3px 0 var(--blue), -3px 0 var(--blue), 0 3px var(--blue), 0 -3px var(--blue); }
+        .subtitle { margin: 0 0 1.8rem; color: var(--muted); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; }
+        .character-card { min-height: 350px; padding: clamp(1.5rem, 5vw, 3rem); border-radius: 14px; background: var(--panel); box-shadow: 0 24px 65px rgba(0,0,0,.25); }
+        .status { min-height: 260px; display: grid; place-items: center; align-content: center; gap: 1rem; }
+        .status i { color: #73c1ff; font-size: 2.7rem; }
+        .status p { margin: 0; color: #d8e8f6; font-size: 1.05rem; }
+        .status.error i { color: #9bcfff; }
+        .status.error p { color: #e5f2ff; }
+        .character-label { margin: 0 0 .6rem; color: #73c1ff; font-size: .7rem; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+        .character-name { margin: 0 0 2rem; color: #fff; font: 400 clamp(2rem, 7vw, 3.4rem)/1.1 Georgia, serif; }
+        .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin: 0; text-align: left; }
+        .fact { padding: 1rem; border: 1px solid rgba(115,193,255,.3); border-radius: 7px; background: rgba(255,255,255,.06); }
+        .fact dt { margin-bottom: .35rem; color: #91a4b7; font-size: .67rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+        .fact dd { margin: 0; color: #fff; font-size: 1.05rem; font-weight: 900; }
+        button { margin-top: 1.5rem; padding: .9rem 1.4rem; border: 0; border-radius: 5px; color: #fff; background: var(--blue); cursor: pointer; font: 900 .9rem 'Trebuchet MS', sans-serif; transition: transform 160ms, background 160ms; }
+        button:hover:not(:disabled) { background: #155b9c; transform: translateY(-2px); }
+        button:focus-visible { outline: 3px solid #73c1ff; outline-offset: 3px; }
+        button:disabled { cursor: wait; opacity: .6; }
+        @media (max-width: 430px) { .brand { font-size: 4rem; } .character-card { padding: 1rem .6rem; } .facts { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="kicker"></p>
+        <h1 class="brand">STAR<br>WARS</h1>
+        <p class="subtitle">Live transmission // random character search</p>
+        <section class="character-card" aria-live="polite">
+            <div id="status" class="status"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i><p>Searching the galaxy...</p></div>
+        </section>
+        <button id="random-button" type="button"><i class="fa-solid fa-shuffle" aria-hidden="true"></i> Find Someone</button>
+    </main>
+    <script src="star web.js"></script>
+</body>
+</html>

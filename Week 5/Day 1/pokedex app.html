@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex | Pokémon Archive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap">
+    <style>
+        :root {
+            --red: #e63946;
+            --red-dark: #b92335;
+            --navy: #10263d;
+            --cream: #fff8ed;
+            --blue: #67b7e8;
+            --shadow: 0 20px 45px rgba(32, 44, 55, 0.22);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--navy);
+            font-family: Nunito, sans-serif;
+            background: var(--cream);
+            background-image: radial-gradient(rgba(16, 38, 61, 0.08) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        .page {
+            width: min(92vw, 1020px);
+            margin: auto;
+            padding: 2.5rem 0 3rem;
+        }
+
+        header { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-bottom: 1.5rem; }
+        .wordmark { color: var(--red); font: 700 clamp(2.8rem, 8vw, 5.4rem)/0.8 'Barlow Condensed', sans-serif; letter-spacing: 0.02em; text-transform: uppercase; transform: skew(-7deg); }
+        .eyebrow { margin: 0 0 0.35rem; color: var(--red); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.22em; text-transform: uppercase; }
+        .intro { margin: 0; color: #637181; font-size: 0.95rem; }
+        .app-shell { display: grid; grid-template-columns: minmax(270px, 0.8fr) minmax(380px, 1.2fr); overflow: hidden; border: 1px solid rgba(16, 38, 61, 0.15); border-radius: 20px; background: white; box-shadow: var(--shadow); }
+        .device-side { display: grid; place-items: center; min-height: 575px; padding: 2rem; background: var(--red); position: relative; overflow: hidden; }
+        .device-side::after { position: absolute; width: 340px; height: 340px; border: 2px solid rgba(255,255,255,0.18); border-radius: 50%; content: ''; }
+        .device-image { position: relative; z-index: 1; width: min(100%, 310px); filter: drop-shadow(0 25px 16px rgba(74, 16, 25, 0.35)); }
+        .content-side { padding: clamp(1.5rem, 5vw, 3.4rem); }
+        .section-label { margin: 0 0 1rem; color: #82909f; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; }
+        .display { min-height: 340px; display: grid; align-content: center; justify-items: center; padding: 1.5rem; border-radius: 14px; background: #eef4f5; text-align: center; }
+        .status { display: grid; gap: 0.8rem; place-items: center; color: #768493; }
+        .status i { color: var(--red); font-size: 2.4rem; }
+        .status p { margin: 0; font-weight: 800; }
+        .pokemon-art { width: min(68%, 220px); height: 200px; object-fit: contain; filter: drop-shadow(0 14px 8px rgba(16, 38, 61, 0.15)); animation: float 2.8s ease-in-out infinite; }
+        @keyframes float { 50% { transform: translateY(-6px); } }
+        .pokemon-name { margin: 0.6rem 0 0.15rem; font: 700 clamp(2rem, 5vw, 3.4rem)/0.9 'Barlow Condensed', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+        .pokemon-id { margin: 0 0 1rem; color: #83909b; font-weight: 900; }
+        .types { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
+        .type { padding: 0.3rem 0.7rem; border-radius: 100px; color: white; background: var(--navy); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+        .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 1rem 0 1.5rem; }
+        .fact { padding: 0.85rem 1rem; border-left: 3px solid var(--red); background: #fff8ed; }
+        .fact-label { display: block; color: #87939f; font-size: 0.68rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
+        .fact-value { display: block; margin-top: 0.2rem; font-size: 1rem; font-weight: 900; }
+        .actions { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 0.6rem; }
+        button { min-height: 46px; border: 0; border-radius: 7px; color: white; background: var(--navy); cursor: pointer; font: 900 0.82rem Nunito, sans-serif; transition: transform 160ms, background 160ms; }
+        button:hover:not(:disabled) { background: var(--red); transform: translateY(-2px); }
+        button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+        button:disabled { cursor: wait; opacity: 0.5; }
+        .random-button { background: var(--red); }
+        .random-button:hover:not(:disabled) { background: var(--red-dark); }
+        footer { margin-top: 1.2rem; color: #87939f; font-size: 0.78rem; text-align: center; }
+        @media (max-width: 720px) { .app-shell { grid-template-columns: 1fr; } .device-side { min-height: 260px; } .device-image { width: 190px; } .device-side::after { width: 230px; height: 230px; } header { align-items: flex-start; flex-direction: column; gap: 0.7rem; } }
+        @media (max-width: 430px) { .page { width: 94vw; padding-top: 1.4rem; } .content-side { padding: 1rem; } .display { min-height: 305px; } .actions { grid-template-columns: 1fr 1fr; } .random-button { grid-column: 1 / -1; grid-row: 1; } }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header>
+            <div><p class="eyebrow"></p><div class="wordmark">Pokédex</div></div>
+            <p class="intro">Explore the world of Pokémon<br>one discovery at a time.</p>
+        </header>
+        <section class="app-shell" aria-label="Pokédex application">
+            <div class="device-side"><img class="device-image" src="https://raw.githubusercontent.com/devtlv/studentsGitHub/master/JS/Week%205/Day%205/Mini%20Projects/Mini-Project%202%20-%20Pokedex%20API/pokedex.png" alt="Pokédex device"></div>
+            <div class="content-side">
+                <p class="section-label">Current field report</p>
+                <div id="display" class="display" aria-live="polite"><div class="status"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i><p>Scanning the Pokédex...</p></div></div>
+                <div class="actions"><button id="previous-button" type="button" aria-label="Previous Pokémon"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Previous</button><button id="random-button" class="random-button" type="button"><i class="fa-solid fa-shuffle" aria-hidden="true"></i> Random Pokémon</button><button id="next-button" type="button" aria-label="Next Pokémon">Next <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+            </div>
+        </section>
+        <footer>Data provided by PokéAPI · National Pokédex archive</footer>
+    </main>
+    <script src="pokedex app.js"></script>
+</body>
+</html>
