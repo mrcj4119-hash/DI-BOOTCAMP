@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "code-runner.executorMap": {
+        "typescript": "\"$workspaceRoot\\node_modules\\.bin\\tsc.cmd\" --target ES2020 --module commonjs --outDir \"$workspaceRoot\\out\" $fullFileName && node \"$workspaceRoot\\out\\$fileNameWithoutExt.js\""
+    }
 }

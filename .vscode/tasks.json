@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile current TypeScript file",
+            "type": "process",
+            "command": "${workspaceFolder}/node_modules/.bin/tsc.cmd",
+            "args": [
+                "--target",
+                "ES2020",
+                "--module",
+                "commonjs",
+                "--outDir",
+                "${workspaceFolder}/out",
+                "${file}"
+            ],
+            "problemMatcher": "$tsc",
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        }
+    ]
+}

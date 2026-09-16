@@ -10,6 +10,16 @@
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run current TypeScript file",
+            "program": "${workspaceFolder}/out/${fileBasenameNoExtension}.js",
+            "preLaunchTask": "Compile current TypeScript file",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }
