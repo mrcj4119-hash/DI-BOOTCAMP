@@ -1,77 +1,64 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// Exercise 1: Inheritance with protected properties
-class Employee {
-    constructor(name, salary) {
-        this.name = name;
-        this.salary = salary;
+function getProperty(user, propertyName) {
+    if (propertyName in user) {
+        return user[propertyName];
     }
-    getDetails() {
-        return `${this.name} earns $${this.salary}`;
+    return undefined;
+}
+function castToType(value, constructor) {
+    return new constructor(value);
+}
+function getArrayLength(items) {
+    const typedItems = items;
+    return typedItems.length;
+}
+class Box {
+    constructor() {
+        this.items = [];
+    }
+    add(item) {
+        this.items.push(item);
+    }
+    get(index) {
+        return this.items[index];
     }
 }
-class Manager extends Employee {
-    constructor(name, salary, department) {
-        super(name, salary);
-        this.department = department;
+class Queue {
+    constructor() {
+        this.items = [];
     }
-    getDetails() {
-        return `${super.getDetails()} and manages the ${this.department} department`;
+    add(item) {
+        this.items.push(item);
     }
-}
-const manager = new Manager("Jordan", 75000, "Engineering");
-console.log(manager.getDetails());
-// Exercise 2: Readonly properties with access modifiers
-class Car {
-    constructor(make, model, year) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-    }
-    getCarDetails() {
-        return `${this.make} ${this.model} (${this.year})`;
+    remove() {
+        return this.items.shift();
     }
 }
-const car = new Car("Toyota", "Corolla", 2024);
-console.log(car.getCarDetails());
-// These assignments produce TypeScript errors because the properties are readonly:
-// car.make = "Honda";
-// car.model = "Civic";
-// Exercise 3: Static properties and methods
-class MathUtils {
-    static circumference(radius) {
-        return 2 * MathUtils.PI * radius;
-    }
-}
-MathUtils.PI = 3.14159;
-console.log(MathUtils.circumference(5));
-class Addition {
-    operate(firstNumber, secondNumber) {
-        return firstNumber + secondNumber;
-    }
-}
-class Multiplication {
-    operate(firstNumber, secondNumber) {
-        return firstNumber * secondNumber;
-    }
-}
-const addition = new Addition();
-const multiplication = new Multiplication();
-console.log(addition.operate(6, 4));
-console.log(multiplication.operate(6, 4));
-class ColoredRectangle {
-    constructor(color, width, height) {
-        this.color = color;
-        this.width = width;
-        this.height = height;
-    }
-    getArea() {
-        return this.width * this.height;
-    }
-    getPerimeter() {
-        return 2 * (this.width + this.height);
-    }
-}
-const rectangle = new ColoredRectangle("blue", 8, 5);
-console.log(`Area: ${rectangle.getArea()}`);
-console.log(`Perimeter: ${rectangle.getPerimeter()}`);
+const adminUser = {
+    name: "Alex",
+    email: "alex@example.com",
+    adminLevel: 2,
+};
+const convertedNumber = castToType("42", Number);
+const convertedBoolean = castToType("true", Boolean);
+const numberArrayLength = getArrayLength([1, 2, 3]);
+const stringArrayLength = getArrayLength(["one", "two"]);
+const numberBox = new Box();
+numberBox.add(10);
+const stringBox = new Box();
+stringBox.add("stored value");
+const numberQueue = new Queue();
+numberQueue.add({ value: 100 });
+const stringQueue = new Queue();
+stringQueue.add({ value: "queued value" });
+console.log(getProperty(adminUser, "name"));
+console.log(getProperty(adminUser, "missing"));
+console.log(convertedNumber);
+console.log(convertedBoolean);
+console.log(numberArrayLength);
+console.log(stringArrayLength);
+console.log(numberBox.get(0));
+console.log(stringBox.get(0));
+console.log(numberQueue.remove());
+console.log(stringQueue.remove());

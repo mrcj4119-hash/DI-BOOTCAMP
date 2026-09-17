@@ -1,126 +1,50 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// Exercise 1: Advanced access modifiers and inheritance
-class Employee {
-    constructor(name, age, salary) {
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
-    }
-    calculateBonus() {
-        return this.salary * 0.1;
-    }
-    getSalaryDetails() {
-        return `${this.name} earns $${this.salary}`;
-    }
-}
-class Manager extends Employee {
-    getSalaryDetails() {
-        return `${super.getSalaryDetails()} plus a $${this.calculateBonus()} bonus`;
-    }
-}
-class ExecutiveManager extends Manager {
-    approveBudget(amount) {
-        return `${this.name} approved a budget of $${amount}`;
-    }
-}
-const executiveManager = new ExecutiveManager("Taylor", 42, 100000);
-console.log(executiveManager.getSalaryDetails());
-console.log(executiveManager.approveBudget(50000));
-// Exercise 2: Static methods and properties
-class Shape {
+class Container {
     constructor() {
-        Shape.totalShapes += 1;
+        this.items = [];
     }
-    static getType() {
-        return "Shape";
+    add(item) {
+        this.items.push(item);
     }
-}
-Shape.totalShapes = 0;
-class Circle extends Shape {
-    constructor(radius) {
-        super();
-        this.radius = radius;
+    remove(index) {
+        if (index < 0 || index >= this.items.length) {
+            return undefined;
+        }
+        return this.items.splice(index, 1)[0];
     }
-    area() {
-        return Math.PI * this.radius ** 2;
-    }
-    static getType() {
-        return "Circle";
+    list() {
+        return [...this.items];
     }
 }
-class Square extends Shape {
-    constructor(side) {
-        super();
-        this.side = side;
+function parseResponse(response) {
+    return response.data;
+}
+class Repository {
+    constructor() {
+        this.items = [];
     }
-    area() {
-        return this.side ** 2;
+    add(item) {
+        this.items.push(item);
     }
-    static getType() {
-        return "Square";
+    retrieve(index) {
+        return this.items[index];
+    }
+    list() {
+        return [...this.items];
     }
 }
-const circle = new Circle(3);
-const square = new Square(4);
-console.log(`${Circle.getType()} area: ${circle.area()}`);
-console.log(`${Square.getType()} area: ${square.area()}`);
-console.log(`Total shapes: ${Shape.totalShapes}`);
-class AdvancedCalculator {
-    constructor(a, b) {
-        this.a = a;
-        this.b = b;
-    }
-    operate(operation) {
-        return operation(this.a, this.b);
-    }
-    add() {
-        return this.operate((firstNumber, secondNumber) => firstNumber + secondNumber);
-    }
-    subtract() {
-        return this.operate((firstNumber, secondNumber) => firstNumber - secondNumber);
-    }
-    multiply() {
-        return this.operate((firstNumber, secondNumber) => firstNumber * secondNumber);
-    }
-}
-const advancedCalculator = new AdvancedCalculator(12, 4);
-console.log(advancedCalculator.add());
-console.log(advancedCalculator.subtract());
-console.log(advancedCalculator.multiply());
-// Exercise 4: Readonly properties in inheritance
-class Device {
-    constructor(serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-    getDeviceInfo() {
-        return `Serial number: ${this.serialNumber}`;
-    }
-}
-class Laptop extends Device {
-    constructor(serialNumber, model, price) {
-        super(serialNumber);
-        this.model = model;
-        this.price = price;
-    }
-    getDeviceInfo() {
-        return `${super.getDeviceInfo()}, model: ${this.model}, price: $${this.price}`;
-    }
-}
-const laptop = new Laptop("SN-12345", "ProBook", 1200);
-laptop.model = "ProBook X";
-laptop.price = 1350;
-console.log(laptop.getDeviceInfo());
-class Smartphone {
-    constructor(name, price, warrantyPeriod, discount) {
-        this.name = name;
-        this.price = price;
-        this.warrantyPeriod = warrantyPeriod;
-        this.discount = discount;
-    }
-    getPriceAfterDiscount() {
-        return this.price * (1 - (this.discount ?? 0));
-    }
-}
-const smartphone = new Smartphone("Example Phone", 800, 24, 0.15);
-console.log(`Price after discount: $${smartphone.getPriceAfterDiscount()}`);
+const container = new Container();
+container.add({ id: 1, createdAt: new Date() });
+const response = {
+    status: 200,
+    data: { name: "Alex", score: 100 },
+};
+const parsedResponse = parseResponse(response);
+const repository = new Repository();
+repository.add("first item");
+console.log(container.list());
+console.log(container.remove(0));
+console.log(parsedResponse.name, parsedResponse.score);
+console.log(repository.retrieve(0));
+console.log(repository.list());

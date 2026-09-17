@@ -1,69 +1,52 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-// Exercise 1: Access modifiers
-class Employee {
-    constructor(name, salary, position, department) {
-        this.name = name;
-        this.salary = salary;
-        this.position = position;
-        this.department = department;
-    }
-    getEmployeeInfo() {
-        return `${this.name} - ${this.position}`;
-    }
-}
-const employee = new Employee("Alice", 50000, "Developer", "Engineering");
-console.log(employee.getEmployeeInfo());
-// Exercise 2: Readonly properties
-class Product {
-    constructor(id, name, price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
-    getProductInfo() {
-        return `${this.name} costs $${this.price}`;
-    }
-}
-const product = new Product(1, "Notebook", 12.99);
-console.log(product.getProductInfo());
-// This would produce a TypeScript error because id is readonly:
-// product.id = 2;
-// Exercise 3: Class inheritance
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
-    makeSound() {
-        return "Some animal sound";
-    }
-}
-class Dog extends Animal {
-    makeSound() {
-        return "Bark";
-    }
-}
-const dog = new Dog("Buddy");
-console.log(`${dog.name} says ${dog.makeSound()}`);
-// Exercise 4: Static properties and methods
-class Calculator {
-    static add(a, b) {
-        return a + b;
-    }
-    static subtract(a, b) {
-        return a - b;
-    }
-}
-console.log(Calculator.add(10, 5));
-console.log(Calculator.subtract(10, 5));
-const printUserDetails = (user) => {
-    const membership = user.membershipLevel ?? "Standard";
-    console.log(`${user.name} (${user.email}) - ${membership}`);
-};
-const premiumUser = {
-    id: 1,
+const personWithAddress = {
     name: "Alice",
-    email: "alice@example.com",
-    membershipLevel: "Gold",
+    age: 30,
+    street: "123 Main Street",
+    city: "New York",
 };
-printUserDetails(premiumUser);
+function describeValue(value) {
+    if (typeof value === "number") {
+        return "This is a number";
+    }
+    return "This is a string";
+}
+const someValue = "This value was cast to a string";
+const castString = someValue;
+function getFirstElement(values) {
+    return values[0];
+}
+function logLength(value) {
+    console.log(value.length);
+}
+function describeEmployee(employee) {
+    if (employee.position === "Manager") {
+        return `${employee.name} is a manager in the ${employee.department} department.`;
+    }
+    return `${employee.name} is a developer in the ${employee.department} department.`;
+}
+function formatInput(input) {
+    return input.toString();
+}
+const manager = {
+    name: "Jordan",
+    age: 35,
+    position: "Manager",
+    department: "Operations",
+};
+const developer = {
+    name: "Taylor",
+    age: 28,
+    position: "Developer",
+    department: "Engineering",
+};
+console.log(personWithAddress);
+console.log(describeValue(42));
+console.log(describeValue("hello"));
+console.log(castString);
+console.log(getFirstElement(["first", 2]));
+logLength("TypeScript");
+logLength([1, 2, 3]);
+console.log(describeEmployee(manager));
+console.log(describeEmployee(developer));
+console.log(formatInput(12345));
