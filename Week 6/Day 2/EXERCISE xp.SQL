@@ -50,10 +50,7 @@ LIMIT 3;
 -- 4. Last names in reverse alphabetical order
 SELECT last_name 
 FROM customers 
-ORDER BY last_name DESC;
-
-
------------------------------------------------------------
+ORDER BY last_name DESC;    
 
 
 /* EXERCISE 2: DVD RENTAL DATABASE 
