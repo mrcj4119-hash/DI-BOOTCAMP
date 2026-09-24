@@ -29,6 +29,8 @@ SET default_table_access_method = heap;
 -- TOC entry 219 (class 1259 OID 16446)
 -- Name: items; Type: TABLE; Schema: public; Owner: postgres
 --
+-- Name:Items; Type: TABLE; Schema: public; Owner: postgres
+--
 /* EXERCISE 1: ITEMS AND CUSTOMERS 
 */
 

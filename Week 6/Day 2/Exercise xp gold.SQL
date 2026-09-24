@@ -27,6 +27,8 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 219 (class 1259 OID 16446) 
+-- TOC entry 219 (class 1259 OID 16446)
+-- Name: Films; Type: TABLE; Schema: public; Owner: postgres
 --
 
 -- 1. Find out how many films there are for each rating
