@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Strategy Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="auth-screen" class="card">
+    <h2>Strategy Game Auth</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <div class="btn-group">
+      <button onclick="register()">Register</button>
+      <button onclick="login()">Login</button>
+    </div>
+    <p id="auth-msg" class="msg"></p>
+  </div>
+
+  <div id="lobby-screen" class="card hidden">
+    <h2>Welcome, <span id="user-display"></span></h2>
+    <button onclick="startGame()">Start / Find Game</button>
+    <p id="lobby-msg" class="msg"></p>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <div class="game-info">
+      <h3>Turn: <span id="turn-display"></span></h3>
+      <p>Base P1 HP: <span id="p1-hp">100</span> | Base P2 HP: <span id="p2-hp">100</span></p>
+      <p id="status-display"></p>
+    </div>
+
+    <div id="grid-board" class="grid-container"></div>
+
+    <div class="controls">
+      <h4>Movement</h4>
+      <div class="d-pad">
+        <button onclick="makeAction('MOVE', 'UP')">▲ UP</button>
+        <div>
+          <button onclick="makeAction('MOVE', 'LEFT')">◄ LEFT</button>
+          <button onclick="makeAction('MOVE', 'RIGHT')">RIGHT ►</button>
+        </div>
+        <button onclick="makeAction('MOVE', 'DOWN')">▼ DOWN</button>
+      </div>
+      <button id="attack-btn" class="attack-btn" onclick="makeAction('ATTACK')">⚔ Attack Base</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

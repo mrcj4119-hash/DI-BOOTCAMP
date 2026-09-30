@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Chat App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+  <!-- Auth Screen -->
+  <div id="auth-container" class="card">
+    <h2>Welcome to ChatApp</h2>
+    <input type="text" id="auth-username" placeholder="Username" />
+    <input type="password" id="auth-password" placeholder="Password" />
+    <div class="btn-group">
+      <button onclick="handleLogin()">Login</button>
+      <button onclick="handleRegister()">Register</button>
+    </div>
+    <p id="auth-error" class="error-text"></p>
+  </div>
+
+  <!-- Chat Screen -->
+  <div id="chat-container" class="hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-section">
+        <img id="user-avatar" src="" alt="Avatar" />
+        <span id="user-display-name"></span>
+        <button onclick="changeAvatar()" class="sm-btn">Change Avatar</button>
+      </div>
+
+      <div class="theme-selector">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select" onchange="switchTheme(this.value)">
+          <option value="theme-light">Light</option>
+          <option value="theme-dark">Dark</option>
+          <option value="theme-neon">Neon</option>
+        </select>
+      </div>
+
+      <h3>Chat Rooms</h3>
+      <ul id="rooms-list">
+        <li class="active" onclick="selectRoom('General')"># General</li>
+        <li onclick="selectRoom('Tech')"># Tech</li>
+        <li onclick="selectRoom('Random')"># Random</li>
+      </ul>
+
+      <h3>Active Users (<span id="user-count">0</span>)</h3>
+      <ul id="active-users-list"></ul>
+    </aside>
+
+    <!-- Main Chat Window -->
+    <main class="chat-window">
+      <header class="chat-header">
+        <h2 id="current-room-title"># General</h2>
+      </header>
+
+      <div id="messages-display" class="messages-display"></div>
+
+      <!-- Input controls -->
+      <footer class="chat-input-area">
+        <div class="emoji-picker">
+          <button onclick="addEmoji('😊')">😊</button>
+          <button onclick="addEmoji('🔥')">🔥</button>
+          <button onclick="addEmoji('👍')">👍</button>
+          <button onclick="addEmoji('🎉')">🎉</button>
+        </div>
+        <form id="chat-form" onsubmit="sendMessage(event)">
+          <input type="text" id="message-input" placeholder="Type a message or image URL..." autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </footer>
+    </main>
+
+    <!-- Private Chat Drawer -->
+    <div id="pm-drawer" class="pm-drawer hidden">
+      <h3>Private Chat with <span id="pm-target"></span></h3>
+      <div id="pm-messages" class="pm-messages"></div>
+      <form onsubmit="sendPrivateMessage(event)">
+        <input type="text" id="pm-input" placeholder="Type private message..." autocomplete="off" />
+        <button type="submit">Send PM</button>
+        <button type="button" onclick="closePM()">Close</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
