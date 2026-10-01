@@ -1,0 +1,51 @@
+.para {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.exercise-content {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+}
+
+.exercise-content h1,
+.exercise-content p,
+.exercise-content ul {
+  margin: 0;
+}
+
+.exercise-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.exercise-form input {
+  min-width: 180px;
+  padding: 7px 9px;
+  border: 1px solid #aeb9b5;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.exercise-form button {
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  background: #237a72;
+  cursor: pointer;
+}
+
+.exercise-image {
+  display: block;
+  width: min(100%, 360px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 3px;
+}

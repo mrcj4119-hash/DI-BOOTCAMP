@@ -1,0 +1,31 @@
+body {
+  min-width: 320px;
+  background: #f8f9fa;
+}
+
+.celebrity-card {
+  width: 100%;
+  max-width: 30rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.celebrity-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.celebrity-card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.celebrity-card .card-text {
+  flex: 1;
+}
+
+.planet-section {
+  max-width: 30rem;
+}
