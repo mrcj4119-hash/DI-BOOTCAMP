@@ -1,0 +1,235 @@
+.vote-page {
+  width: min(920px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 42px;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding-bottom: 30px;
+  border-left: 5px solid #f2cc44;
+  padding-left: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: #dc4d3b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #26241f;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3.4rem;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.intro-copy {
+  margin: 11px 0 0;
+  color: #6b6259;
+  font-size: 0.98rem;
+}
+
+.total-count {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  border: 1px solid #eedc9f;
+  border-radius: 999px;
+  background: #fff3c8;
+  color: #ad5a32;
+  font-variant-numeric: tabular-nums;
+}
+
+.total-value {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.3rem;
+  line-height: 1;
+}
+
+.total-label {
+  color: #78664d;
+  font-size: 0.8rem;
+}
+
+.language-list {
+  display: grid;
+  gap: 9px;
+}
+
+.language-row {
+  --language-color: #dc4d3b;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 106px 104px;
+  align-items: center;
+  gap: 18px;
+  min-height: 94px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--language-color) 24%, white);
+  border-left: 5px solid var(--language-color);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--language-color) 7%, white);
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.language-row:nth-child(2) {
+  --language-color: #4166e8;
+}
+
+.language-row:nth-child(3) {
+  --language-color: #c48700;
+}
+
+.language-row:nth-child(4) {
+  --language-color: #168276;
+}
+
+.language-row:hover {
+  transform: translateX(3px);
+  background: color-mix(in srgb, var(--language-color) 12%, white);
+}
+
+.language-index {
+  color: var(--language-color);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.95rem;
+}
+
+.language-row h2 {
+  margin: 0;
+  color: #26241f;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+
+.vote-count {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  color: var(--language-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.vote-number {
+  min-width: 24px;
+  font-size: 1.32rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.vote-label {
+  color: #756c61;
+  font-size: 0.78rem;
+}
+
+.vote-button {
+  --button-text: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid var(--language-color);
+  border-radius: 4px;
+  background: var(--language-color);
+  color: var(--button-text);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.vote-button span {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.vote-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.9);
+}
+
+.language-row:nth-child(3) .vote-button {
+  --button-text: #211c12;
+}
+
+.vote-button:focus-visible {
+  outline: 3px solid #26241f;
+  outline-offset: 3px;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 18px;
+  color: #786f63;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 600px) {
+  .vote-page {
+    width: calc(100% - 32px);
+    padding-top: 38px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    padding-left: 15px;
+  }
+
+  .page-header h1 {
+    font-size: 2.7rem;
+  }
+
+  .language-row {
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 12px;
+    min-height: 92px;
+  }
+
+  .language-row h2 {
+    font-size: 1.3rem;
+  }
+
+  .vote-count {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: -18px;
+  }
+
+  .vote-button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 380px) {
+  .language-row {
+    grid-template-columns: 22px minmax(0, 1fr) 88px;
+    column-gap: 8px;
+  }
+
+  .vote-button {
+    padding-inline: 10px;
+  }
+
+  .vote-count {
+    gap: 4px;
+  }
+}

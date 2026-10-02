@@ -1,0 +1,27 @@
+:root {
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  color: #243f37;
+  background: #f3f1e7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 96% 3%, rgba(196, 215, 179, 0.5), transparent 34%),
+    linear-gradient(145deg, #f3f1e7 0%, #faf7ed 48%, #e8efe6 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
