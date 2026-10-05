@@ -1,0 +1,150 @@
+#root {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.top-bar {
+  min-height: 38px;
+  padding: 7px 12px;
+  color: #f8f9fa;
+  background: #343a40;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  min-height: 262px;
+}
+
+.left-column,
+.right-column {
+  min-width: 0;
+  padding: 0 10px 20px;
+}
+
+.left-column {
+  background: #f7f7f7;
+  border-right: 1px solid #dee2e6;
+}
+
+.right-column {
+  background: #fff;
+}
+
+.left-column h2,
+.right-column h2 {
+  margin: 0 0 4px;
+  color: #343a40;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.right-column p {
+  margin: 0 0 10px;
+  color: #343a40;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.right-column code {
+  padding: 0;
+  color: #d63384;
+  background: transparent;
+  font-family: Consolas, monospace;
+  font-size: 11px;
+}
+
+.right-column hr {
+  height: 1px;
+  margin: 10px 0;
+  border: 0;
+  background: #e9ecef;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: white;
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: #007bff;
+  border-color: #007bff;
+}
+
+.button-danger {
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+.button:hover {
+  filter: brightness(0.93);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.image-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.error-fallback {
+  margin: 4px 0 10px;
+  padding: 10px 12px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  background: #f8d7da;
+  color: #721c24;
+  font-size: 12px;
+}
+
+.error-fallback h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.error-fallback details {
+  margin: 0 0 8px;
+  white-space: pre-wrap;
+}
+
+.error-fallback button {
+  padding: 4px 8px;
+  border: 1px solid #721c24;
+  border-radius: 3px;
+  background: #fff;
+  color: #721c24;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column {
+    border-right: 0;
+    border-bottom: 1px solid #dee2e6;
+    min-height: 120px;
+  }
+
+  .right-column {
+    padding-top: 12px;
+  }
+}

@@ -1,0 +1,102 @@
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.exercise-panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px 20px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+.exercise-panel h2 {
+  margin: 0 0 18px;
+  font-size: 2rem;
+}
+
+.simulation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.simulation-card,
+.lifecycle-box,
+.error-fallback {
+  background: #f8fafc;
+  border: 1px solid #dbe4f0;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.simulation-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.simulation-card h3,
+.lifecycle-box h3,
+.error-fallback h3 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.counter-button,
+.action-button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.counter-button:hover,
+.action-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(37, 99, 235, 0.25);
+}
+
+.action-button.danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  margin-bottom: 12px;
+}
+
+.error-fallback {
+  border-color: #fca5a5;
+  background: #fff1f2;
+  color: #7f1d1d;
+}
+
+.error-fallback details {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.lifecycle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .exercise-panel {
+    padding: 20px 14px 24px;
+  }
+
+  .simulation-grid {
+    grid-template-columns: 1fr;
+  }
+}

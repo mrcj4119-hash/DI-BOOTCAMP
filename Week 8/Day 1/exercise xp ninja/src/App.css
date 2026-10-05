@@ -1,0 +1,101 @@
+.clock-app {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px 0;
+}
+
+.clock-panel {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: min(66vw, 440px);
+  min-height: 340px;
+  place-items: center;
+  overflow: hidden;
+  background: #272b34;
+  color: #f0f1f3;
+}
+
+.year-label,
+.month-label {
+  position: absolute;
+  z-index: 2;
+  font-size: 20px;
+}
+
+.year-label {
+  top: 22px;
+  left: 24px;
+}
+
+.year-label small {
+  font-size: 12px;
+}
+
+.month-label {
+  right: 24px;
+  bottom: 20px;
+}
+
+.clock-face {
+  position: relative;
+  width: min(82vw, 520px);
+  aspect-ratio: 1;
+}
+
+.clock-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(224, 228, 235, 0.43);
+  font-size: clamp(7px, 0.8vw, 10px);
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(var(--angle))
+    translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
+  transform-origin: center;
+}
+
+.clock-mark.current {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.clock-readout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: max-content;
+  padding: 6px 10px;
+  background: #272b34;
+  color: #fff;
+  font-size: clamp(12px, 1.4vw, 16px);
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.accessible-date {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 600px) {
+  .clock-panel {
+    height: 76vw;
+    min-height: 320px;
+  }
+
+  .clock-face {
+    width: 94vw;
+  }
+
+  .clock-mark {
+    font-size: 6px;
+  }
+}
