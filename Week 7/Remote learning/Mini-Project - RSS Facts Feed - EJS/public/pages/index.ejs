@@ -1,0 +1,18 @@
+<%- include('../partials/head', { title: 'Latest facts' }) %>
+<%- include('../partials/header') %>
+
+<main class="container page-shell py-5">
+  <div class="mb-4">
+    <p class="text-uppercase small fw-semibold text-primary mb-2">The Fact File RSS feed</p>
+    <h1 class="display-5 fw-bold">Interesting facts, refreshed</h1>
+    <p class="lead text-secondary mb-0">Explore the latest stories from The Fact File.</p>
+  </div>
+
+  <%- include('../partials/posts', {
+    posts,
+    error,
+    emptyMessage: 'There are no facts to display right now.'
+  }) %>
+</main>
+
+<%- include('../partials/footer') %>

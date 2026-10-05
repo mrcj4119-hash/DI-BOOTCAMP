@@ -1,0 +1,34 @@
+<% if (error) { %>
+  <div class="alert alert-warning" role="status"><%= error %></div>
+<% } %>
+
+<% if (posts.length) { %>
+  <div class="row g-4">
+    <% posts.forEach((post) => { %>
+      <div class="col-12">
+        <article class="card post-card">
+          <div class="card-body p-4">
+            <h2 class="h4 card-title">
+              <a class="text-decoration-none" href="<%= post.link %>" target="_blank" rel="noopener noreferrer"><%= post.title %></a>
+            </h2>
+            <div class="small text-secondary mb-3">
+              <span>Published <%= post.publishedDate %></span>
+              <span class="mx-2">|</span>
+              <span>By <%= post.creator %></span>
+            </div>
+            <% if (post.categories.length) { %>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <% post.categories.forEach((category) => { %>
+                  <span class="badge rounded-pill category-badge"><%= category %></span>
+                <% }) %>
+              </div>
+            <% } %>
+            <p class="post-content mb-0"><%= post.content %></p>
+          </div>
+        </article>
+      </div>
+    <% }) %>
+  </div>
+<% } else if (!error && emptyMessage) { %>
+  <div class="text-center text-secondary py-5"><%= emptyMessage %></div>
+<% } %>

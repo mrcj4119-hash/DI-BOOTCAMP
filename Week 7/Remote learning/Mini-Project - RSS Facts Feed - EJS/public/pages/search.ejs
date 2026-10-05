@@ -1,0 +1,53 @@
+<%- include('../partials/head', { title: 'Search facts' }) %>
+<%- include('../partials/header') %>
+
+<main class="container page-shell py-5">
+  <div class="mb-4">
+    <p class="text-uppercase small fw-semibold text-primary mb-2">Find a fact</p>
+    <h1 class="display-5 fw-bold">Search the feed</h1>
+    <p class="lead text-secondary mb-0">Filter stories by title or category.</p>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-lg-6">
+      <form class="card post-card h-100" action="/search/title" method="post">
+        <div class="card-body p-4">
+          <label class="form-label fw-semibold" for="title">Search by title</label>
+          <div class="input-group">
+            <input class="form-control" id="title" name="title" type="search" list="feedTitles" value="<%= query %>" placeholder="Enter a title">
+            <datalist id="feedTitles">
+              <% titles.forEach((title) => { %>
+                <option value="<%= title %>"></option>
+              <% }) %>
+            </datalist>
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-lg-6">
+      <form class="card post-card h-100" action="/search/category" method="post">
+        <div class="card-body p-4">
+          <label class="form-label fw-semibold" for="category">Search by category</label>
+          <div class="input-group">
+            <select class="form-select" id="category" name="category" required>
+              <option value="" disabled <%= categories.includes(query) ? '' : 'selected' %>>Choose a category</option>
+              <% categories.forEach((category) => { %>
+                <option value="<%= category %>" <%= category === query ? 'selected' : '' %>><%= category %></option>
+              <% }) %>
+            </select>
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <%- include('../partials/posts', {
+    posts,
+    error,
+    emptyMessage: 'Use either form above to find facts.'
+  }) %>
+</main>
+
+<%- include('../partials/footer') %>
