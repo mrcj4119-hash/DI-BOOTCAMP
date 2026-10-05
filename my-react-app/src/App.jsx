@@ -1,121 +1,153 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { Component } from 'react'
 import './App.css'
+import ErrorBoundary from './ErrorBoundary'
+
+class BuggyCounter extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { counter: 0 }
+  }
+
+  handleClick = () => {
+    this.setState(({ counter }) => {
+      const nextCounter = counter + 1
+
+      if (nextCounter >= 5) {
+        throw new Error('I crashed!')
+      }
+
+      return { counter: nextCounter }
+    })
+  }
+
+  render() {
+    return (
+      <button type="button" className="counter-button" onClick={this.handleClick}>
+        Counter: {this.state.counter}
+      </button>
+    )
+  }
+}
+
+class LifecycleDemo extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      favoriteColor: 'red',
+    }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ favoriteColor: 'yellow' })
+    }, 1000)
+  }
+
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate')
+    return true
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('in getSnapshotBeforeUpdate')
+    return `Changed from ${prevState.favoriteColor} to ${this.state.favoriteColor}`
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('after update')
+    console.log(snapshot)
+  }
+
+  handleColorChange = () => {
+    this.setState({ favoriteColor: 'blue' })
+  }
+
+  render() {
+    return (
+      <div className="lifecycle-box">
+        <h3>Favorite color: {this.state.favoriteColor}</h3>
+        <button type="button" className="action-button" onClick={this.handleColorChange}>
+          Change to blue
+        </button>
+      </div>
+    )
+  }
+}
+
+class Child extends Component {
+  componentWillUnmount() {
+    alert('Child has been unmounted!')
+  }
+
+  render() {
+    return <h3>Hello World!</h3>
+  }
+}
+
+class UnmountingDemo extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { show: true }
+  }
+
+  handleDelete = () => {
+    this.setState({ show: false })
+  }
+
+  render() {
+    return (
+      <div className="lifecycle-box">
+        <button type="button" className="action-button danger" onClick={this.handleDelete}>
+          Delete
+        </button>
+        {this.state.show && <Child />}
+      </div>
+    )
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <main className="app-shell">
+      <section className="exercise-panel">
+        <h2>Exercise 1: Error Boundary Simulation</h2>
 
-      <div className="ticks"></div>
+        <div className="simulation-grid">
+          <div className="simulation-card">
+            <h3>Simulation 1: Shared boundary</h3>
+            <ErrorBoundary>
+              <BuggyCounter />
+              <BuggyCounter />
+            </ErrorBoundary>
+          </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+          <div className="simulation-card">
+            <h3>Simulation 2: Separate boundaries</h3>
+            <ErrorBoundary>
+              <BuggyCounter />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <BuggyCounter />
+            </ErrorBoundary>
+          </div>
+
+          <div className="simulation-card">
+            <h3>Simulation 3: No boundary</h3>
+            <BuggyCounter />
+          </div>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <section className="exercise-panel">
+        <h2>Exercise 2: Lifecycle</h2>
+        <LifecycleDemo />
+      </section>
+
+      <section className="exercise-panel">
+        <h2>Exercise 3: Lifecycle #2</h2>
+        <UnmountingDemo />
+      </section>
+    </main>
   )
 }
 
