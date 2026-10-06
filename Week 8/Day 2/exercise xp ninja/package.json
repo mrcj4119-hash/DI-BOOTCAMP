@@ -1,0 +1,25 @@
+{
+  "name": "week-8-day-2-express-react",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n client,users-api,customers-api \"vite --host 127.0.0.1\" \"node backend/users-api/bin/www.js\" \"node backend/customers-server.js\"",
+    "dev:client": "vite --host 127.0.0.1",
+    "start:users-api": "node backend/users-api/bin/www.js",
+    "start:customers-api": "node backend/customers-server.js",
+    "build": "vite build",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^9.2.1",
+    "express": "^5.2.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vite": "^8.3.0"
+  },
+  "devDependencies": {
+    "oxlint": "^1.81.0"
+  }
+}

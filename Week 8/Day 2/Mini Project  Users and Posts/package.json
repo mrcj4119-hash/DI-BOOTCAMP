@@ -1,0 +1,20 @@
+{
+  "name": "week-8-day-2-users-and-posts",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vite": "^8.3.0"
+  },
+  "devDependencies": {
+    "oxlint": "^1.81.0"
+  }
+}

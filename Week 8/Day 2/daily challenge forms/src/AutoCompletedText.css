@@ -1,0 +1,105 @@
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(ellipse at 15% 12%, rgb(111 143 255 / 20%), transparent 29rem),
+    radial-gradient(ellipse at 88% 85%, rgb(57 194 174 / 16%), transparent 27rem),
+    #f3f6fc;
+}
+
+.search-card {
+  width: min(100%, 560px);
+  padding: clamp(1.5rem, 6vw, 3rem);
+  border: 1px solid #e3e9f4;
+  border-radius: 22px;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 22px 65px rgb(38 55 103 / 13%);
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  color: #526dc0;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.search-card h1 {
+  margin: 0 0 0.55rem;
+  color: #26365a;
+  font-size: clamp(2rem, 6vw, 2.7rem);
+  letter-spacing: -0.04em;
+}
+
+.description {
+  margin: 0 0 1.7rem;
+  color: #6a7690;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d7deeb;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #26365a;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.autocomplete input:focus {
+  border-color: #657bdd;
+  box-shadow: 0 0 0 4px rgb(101 123 221 / 14%);
+}
+
+.suggestions {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  left: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.35rem;
+  border: 1px solid #e1e6f0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 14px 30px rgb(38 55 103 / 12%);
+  list-style: none;
+}
+
+.suggestions button {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #34425f;
+  cursor: pointer;
+  text-align: left;
+}
+
+.suggestions button:hover,
+.suggestions button:focus-visible {
+  outline: none;
+  background: #eef1ff;
+  color: #394ca2;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}

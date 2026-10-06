@@ -1,0 +1,96 @@
+.app {
+  width: min(100% - 2rem, 760px);
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+  color: #1e2b46;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.page-header > p:last-child {
+  margin: 0;
+  color: #61708a;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: #5378bb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.exercise-card {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #e4eaf2;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(28 45 77 / 5%);
+}
+
+.exercise-card h2 {
+  margin: 0 0 1.25rem;
+  color: #263653;
+  font-size: 1.2rem;
+}
+
+.post-form {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.post-form label {
+  margin-top: 0.4rem;
+  color: #354664;
+  font-weight: 600;
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #d5deea;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.post-form input:focus,
+.post-form textarea:focus {
+  border-color: #5883d2;
+  outline: 3px solid rgb(88 131 210 / 16%);
+}
+
+.post-form button {
+  justify-self: start;
+  margin-top: 0.6rem;
+  padding: 0.65rem 1.2rem;
+  border: 0;
+  border-radius: 7px;
+  background: #315fbd;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.post-form button:hover {
+  background: #254b98;
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding-top: 2rem;
+  }
+
+  .exercise-card {
+    padding: 1.1rem;
+  }
+}

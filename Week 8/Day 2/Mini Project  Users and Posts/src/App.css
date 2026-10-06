@@ -1,0 +1,95 @@
+.app {
+  width: min(100% - 2rem, 1100px);
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.4rem;
+  color: #1f2c46;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.page-header p {
+  margin: 0;
+  color: #68768b;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.data-panel {
+  min-width: 0;
+  padding: 1.4rem;
+  border: 1px solid #e3e9f1;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(28 45 77 / 5%);
+}
+
+.data-panel > h2 {
+  margin: 0 0 1.1rem;
+  color: #293957;
+  font-size: 1.25rem;
+}
+
+.users-list,
+.posts-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.user-card,
+.post-card {
+  padding: 0.9rem;
+  border-radius: 9px;
+  background: #f6f8fc;
+}
+
+.user-card h3,
+.post-card h3 {
+  margin: 0 0 0.35rem;
+  color: #2c3c5a;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.user-card a {
+  color: #3264b5;
+  overflow-wrap: anywhere;
+}
+
+.post-card p {
+  margin: 0;
+  color: #58667b;
+  line-height: 1.55;
+}
+
+.loading-message {
+  color: #68768b;
+}
+
+.error-message {
+  color: #a42b36;
+}
+
+@media (max-width: 720px) {
+  .app {
+    padding-top: 2rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}

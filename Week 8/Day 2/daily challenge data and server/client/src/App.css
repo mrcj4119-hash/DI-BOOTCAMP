@@ -1,0 +1,104 @@
+.app {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgb(133 148 255 / 24%), transparent 30rem),
+    radial-gradient(ellipse at 90% 90%, rgb(63 199 180 / 17%), transparent 28rem),
+    #f1f4fc;
+}
+
+.message-card {
+  width: min(100%, 620px);
+  padding: clamp(1.5rem, 6vw, 3rem);
+  border: 1px solid #e4e8f5;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgb(47 57 113 / 14%);
+}
+
+.server-mark {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.4rem;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7168e8, #35b9ae);
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.message-card h1 {
+  margin: 0 0 2rem;
+  color: #27325d;
+  font-size: clamp(1.75rem, 5vw, 2.4rem);
+  letter-spacing: -0.035em;
+}
+
+.message-card label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #47536e;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.form-row input {
+  min-width: 0;
+  flex: 1;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #d9deed;
+  border-radius: 9px;
+  outline: none;
+}
+
+.form-row input:focus {
+  border-color: #756ce2;
+  box-shadow: 0 0 0 3px rgb(117 108 226 / 15%);
+}
+
+.form-row button {
+  padding: 0.8rem 1.2rem;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #625bd1, #3d91a4);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.form-row button:hover {
+  filter: brightness(1.08);
+}
+
+.response-message,
+.error-message {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1rem;
+  border-radius: 9px;
+  line-height: 1.5;
+}
+
+.response-message {
+  background: #eaf8f3;
+  color: #17664f;
+}
+
+.error-message {
+  background: #fff0f0;
+  color: #a52b3a;
+}
+
+@media (max-width: 440px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
