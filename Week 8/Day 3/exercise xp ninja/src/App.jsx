@@ -1,0 +1,39 @@
+import AddTaskForm from './components/AddTaskForm.jsx'
+import TaskList from './components/TaskList.jsx'
+import { useTasks } from './context/TaskContext.jsx'
+
+function App() {
+  const { tasks } = useTasks()
+  const completedCount = tasks.filter((task) => task.completed).length
+
+  return (
+    <main className="app-shell">
+      <header className="page-header">
+        <div className="brand-mark" aria-hidden="true">✓</div>
+        <p className="eyebrow">Week 8 · Day 3 · Exercise XP Ninja</p>
+        <h1>Task manager</h1>
+        <p className="intro-copy">A little focus goes a long way. What’s on your list?</p>
+      </header>
+
+      <section className="task-panel" aria-labelledby="tasks-heading">
+        <div className="panel-heading">
+          <div>
+            <p className="panel-kicker">Your workspace</p>
+            <h2 id="tasks-heading">My tasks</h2>
+          </div>
+          <span className="task-summary" aria-live="polite">
+            {completedCount} of {tasks.length} done
+          </span>
+        </div>
+        <AddTaskForm />
+        <TaskList />
+      </section>
+
+      <footer className="page-footer">
+        Powered by shared task context and a reducer.
+      </footer>
+    </main>
+  )
+}
+
+export default App
