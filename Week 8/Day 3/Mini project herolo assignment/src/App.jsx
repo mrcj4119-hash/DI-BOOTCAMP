@@ -3,7 +3,6 @@ import { NavLink, Route, Routes, useNavigate } from 'react-router-dom'
 import {
   fetchWeather,
   getCityKey,
-  getCityLabel,
 } from './api/weather.js'
 import FavoritesPage from './components/FavoritesPage.jsx'
 import WeatherPage from './components/WeatherPage.jsx'
@@ -126,7 +125,7 @@ function App() {
   function showWeatherFor(location) {
     setCity(location)
     setWeatherError('')
-    navigate('/')
+    navigate('/')a
   }
 
   return (
