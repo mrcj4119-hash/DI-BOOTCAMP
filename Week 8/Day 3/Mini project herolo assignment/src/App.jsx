@@ -125,7 +125,7 @@ function App() {
   function showWeatherFor(location) {
     setCity(location)
     setWeatherError('')
-    navigate('/')a
+    navigate('/')
   }
 
   return (
