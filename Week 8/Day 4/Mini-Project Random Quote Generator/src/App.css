@@ -1,0 +1,347 @@
+#root {
+  min-height: 100vh;
+}
+
+.page {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 clamp(24px, 7.1vw, 112px);
+  background: var(--page-color);
+  transition: background-color 500ms ease;
+}
+
+.grain {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.17;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+}
+
+.masthead,
+.page-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.masthead {
+  min-height: 92px;
+  border-bottom: 1px solid rgb(41 37 31 / 13%);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #29251f;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  text-decoration: none;
+}
+
+.wordmark-icon {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid rgb(41 37 31 / 34%);
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.edition,
+.page-footer {
+  color: #71695e;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.45px;
+  text-transform: uppercase;
+}
+
+.quote-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 1050px);
+  flex: 1;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: clamp(44px, 8vw, 120px);
+  margin: 0 auto;
+  padding: 72px 0;
+}
+
+.intro {
+  padding-bottom: 10px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: #71695e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.eyebrow > span {
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+
+.intro h1 {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-size: clamp(36px, 4.5vw, 61px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.13;
+}
+
+.intro p {
+  max-width: 280px;
+  margin: 0;
+  color: #71695e;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.quote-card {
+  position: relative;
+  min-height: 375px;
+  padding: clamp(33px, 5.1vw, 65px);
+  border: 1px solid rgb(41 37 31 / 11%);
+  border-radius: 5px;
+  background: rgb(255 253 249 / 77%);
+  box-shadow: 0 20px 70px rgb(74 57 37 / 8%);
+  animation: card-arrive 420ms ease both;
+}
+
+.quote-mark {
+  display: block;
+  height: 54px;
+  font-family: var(--serif);
+  font-size: 92px;
+  line-height: 1;
+  transition: color 400ms ease;
+}
+
+.quote-text {
+  min-height: 120px;
+  margin: 14px 0 27px;
+  font-family: var(--serif);
+  font-size: clamp(25px, 3vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.65px;
+  line-height: 1.38;
+  transition: color 400ms ease;
+}
+
+.quote-author {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0;
+  color: #71695e;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+}
+
+.author-rule {
+  width: 22px;
+  height: 1px;
+  transition: background-color 400ms ease;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 39px;
+  padding-top: 21px;
+  border-top: 1px solid rgb(41 37 31 / 11%);
+}
+
+.quote-count {
+  color: #968d80;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.quote-count span {
+  margin-left: 5px;
+  color: #49443d;
+}
+
+.next-button {
+  display: inline-flex;
+  min-height: 47px;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--button-color);
+  color: var(--button-ink);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 400ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.next-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgb(41 37 31 / 16%);
+}
+
+.next-button:active {
+  transform: translateY(0);
+}
+
+.next-button svg {
+  width: 17px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  transition: transform 180ms ease;
+}
+
+.next-button:hover svg {
+  transform: translateX(3px);
+}
+
+.side-note {
+  position: absolute;
+  right: -41px;
+  bottom: 50%;
+  color: #968d80;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  transform: translateX(100%) rotate(90deg);
+  transform-origin: left bottom;
+}
+
+.page-footer {
+  min-height: 65px;
+  border-top: 1px solid rgb(41 37 31 / 13%);
+  font-size: 9px;
+  letter-spacing: 1.3px;
+}
+
+.footer-star {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+@keyframes card-arrive {
+  from {
+    opacity: 0.7;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 0 25px;
+  }
+
+  .masthead {
+    min-height: 75px;
+  }
+
+  .quote-stage {
+    width: min(100%, 510px);
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 56px 0 45px;
+  }
+
+  .intro {
+    padding: 0;
+  }
+
+  .eyebrow {
+    margin-bottom: 17px;
+  }
+
+  .intro h1 {
+    font-size: clamp(37px, 8vw, 52px);
+  }
+
+  .intro h1 br {
+    display: none;
+  }
+
+  .intro p {
+    max-width: none;
+  }
+
+  .quote-card {
+    min-height: 0;
+    padding: 33px clamp(24px, 7vw, 42px);
+  }
+
+  .quote-text {
+    min-height: 0;
+    margin-top: 8px;
+  }
+
+  .card-footer {
+    margin-top: 29px;
+  }
+
+  .side-note {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .edition {
+    max-width: 115px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .page-footer {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
