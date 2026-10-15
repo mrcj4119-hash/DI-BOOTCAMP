@@ -1,0 +1,265 @@
+#root {
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(960px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar,
+.brand,
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar {
+  padding: 30px 0;
+}
+
+.brand {
+  justify-content: flex-start;
+  gap: 12px;
+  font-weight: 750;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: #283d35;
+  color: #f6f3ed;
+}
+
+.topbar-note,
+.page-footer {
+  color: #72756e;
+  font-size: 0.88rem;
+}
+
+.tracker-card {
+  position: relative;
+  flex: 1;
+  display: grid;
+  min-height: 560px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #283d35;
+  color: #f6f3ed;
+  isolation: isolate;
+}
+
+.card-content {
+  z-index: 1;
+  width: min(500px, calc(100% - 40px));
+  padding: 54px 0;
+  text-align: center;
+}
+
+.eyebrow,
+.age-label {
+  color: #d2ab7b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+h1 {
+  margin: 18px 0 14px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.7rem, 7vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+h1 span {
+  color: #e2b786;
+  font-style: italic;
+}
+
+.description {
+  max-width: 360px;
+  margin: 0 auto;
+  color: #c6d0c6;
+  line-height: 1.65;
+}
+
+.age-display {
+  min-height: 150px;
+  margin: 30px 0 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.age-label {
+  margin: 0;
+  color: #c6d0c6;
+}
+
+.age-value {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  color: #f4d2a6;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.age-value span {
+  color: #d5ddd5;
+  font-family: Inter, 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+}
+
+.age-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.control-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 140px;
+  padding: 13px 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+
+.control-button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.control-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.control-button span {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.control-button-primary {
+  background: #e2b786;
+  color: #283d35;
+}
+
+.control-button-secondary {
+  border-color: rgba(246, 243, 237, 0.35);
+  background: transparent;
+  color: #f6f3ed;
+}
+
+.hint {
+  margin: 20px 0 0;
+  color: #aebcb1;
+  font-size: 0.82rem;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f4d2a6;
+  font-size: 1.05rem;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(244, 210, 166, 0.28);
+  border-top-color: #f4d2a6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.card-orbit {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(226, 183, 134, 0.16);
+  border-radius: 50%;
+}
+
+.orbit-one {
+  width: 600px;
+  height: 600px;
+  right: -270px;
+  top: -300px;
+}
+
+.orbit-two {
+  width: 440px;
+  height: 440px;
+  left: -220px;
+  bottom: -280px;
+}
+
+.page-footer {
+  padding: 22px 0 26px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    width: min(100% - 24px, 480px);
+  }
+
+  .topbar-note {
+    display: none;
+  }
+
+  .tracker-card {
+    min-height: 520px;
+    border-radius: 22px;
+  }
+
+  .age-controls {
+    flex-direction: column;
+  }
+
+  .control-button {
+    width: 100%;
+  }
+
+  .page-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
