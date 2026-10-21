@@ -1,0 +1,239 @@
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(100% - 40px, 760px);
+  margin: 0 auto;
+  padding: 72px 0 32px;
+}
+
+.page-header {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: #758267;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #2c3529;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+
+.page-header h1 span {
+  color: #758267;
+  font-style: italic;
+}
+
+.intro {
+  margin: 14px 0 0;
+  color: #777b70;
+  font-size: 1.02rem;
+}
+
+.shelf-card,
+.add-card {
+  padding: 30px;
+  border: 1px solid #e9e7dc;
+  border-radius: 18px;
+  background: #fffefa;
+  box-shadow: 0 12px 35px rgb(48 54 41 / 5%);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2,
+.add-card h2 {
+  margin: 0;
+  color: #30382e;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+}
+
+.book-count {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #f0f2e9;
+  color: #62715b;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.book-list {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 18px;
+  border: 1px solid #eeede4;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.book-mark {
+  display: grid;
+  width: 42px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 5px 9px 9px 5px;
+  background: #e9eee2;
+  color: #6b7c62;
+  font-size: 1.2rem;
+}
+
+.book-card h3 {
+  margin: 0 0 4px;
+  color: #353c32;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.book-card p {
+  margin: 0;
+  color: #828478;
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 25px 15px;
+  border: 1px dashed #d9ddcf;
+  border-radius: 12px;
+  color: #777b70;
+  text-align: center;
+}
+
+.add-card {
+  margin-top: 18px;
+  background: #f0f1e9;
+  box-shadow: none;
+}
+
+.add-card h2 {
+  margin-bottom: 20px;
+}
+
+.book-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.book-form label {
+  display: grid;
+  gap: 7px;
+  color: #51584d;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.book-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #dcdfd3;
+  border-radius: 8px;
+  outline: none;
+  background: #fffefa;
+  color: #30382e;
+  font-size: 0.88rem;
+}
+
+.book-form input:focus-visible {
+  border-color: #758267;
+  box-shadow: 0 0 0 3px rgb(117 130 103 / 17%);
+}
+
+.book-form input::placeholder {
+  color: #a2a397;
+}
+
+.book-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 41px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 8px;
+  background: #53664d;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.book-form button:hover {
+  transform: translateY(-1px);
+  background: #43563e;
+}
+
+.book-form button:focus-visible {
+  outline: 3px solid #8f9d82;
+  outline-offset: 3px;
+}
+
+.book-form button span {
+  font-size: 1.1rem;
+}
+
+footer {
+  padding: 24px 0 0;
+  color: #99998d;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 28px, 760px);
+    padding-top: 44px;
+  }
+
+  .shelf-card,
+  .add-card {
+    padding: 22px;
+  }
+
+  .book-form {
+    grid-template-columns: 1fr;
+  }
+
+  .book-form button {
+    min-height: 46px;
+    margin-top: 3px;
+  }
+}
