@@ -64,10 +64,10 @@ function createSession(database, user, config, response) {
   return createAccessToken(user, config.accessTokenSecret)
 }
 
-export function createAuthRouter(database, config) {
+export function createAuthRouter(database, config, authRateLimit) {
   const router = Router()
 
-  router.post('/register', async (request, response, next) => {
+  router.post('/register', authRateLimit, async (request, response, next) => {
     const parsed = credentialsSchema.safeParse(request.body)
     if (!parsed.success) {
       return response.status(400).json({
@@ -99,7 +99,7 @@ export function createAuthRouter(database, config) {
     }
   })
 
-  router.post('/login', async (request, response) => {
+  router.post('/login', authRateLimit, async (request, response) => {
     const parsed = z
       .object({ username: z.string().trim().min(1).max(24), password: z.string().min(1).max(72) })
       .safeParse(request.body)
@@ -122,7 +122,7 @@ export function createAuthRouter(database, config) {
     return response.json({ user: publicUser(user), accessToken })
   })
 
-  router.post('/refresh', (request, response) => {
+  router.post('/refresh', authRateLimit, (request, response) => {
     const token = request.cookies?.[refreshCookieName]
     if (!token) {
       return response.status(401).json({ error: 'Refresh token is required.' })

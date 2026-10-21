@@ -16,17 +16,14 @@ export function createApp(database, config) {
     response.json({ status: 'ok' })
   })
 
-  app.use(
-    '/api/auth',
-    rateLimit({
-      windowMs: 15 * 60 * 1000,
-      limit: 10,
-      standardHeaders: 'draft-8',
-      legacyHeaders: false,
-      message: { error: 'Too many authentication attempts. Try again later.' },
-    }),
-    createAuthRouter(database, config),
-  )
+  const authRateLimit = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: 'Too many authentication attempts. Try again later.' },
+  })
+  app.use('/api/auth', createAuthRouter(database, config, authRateLimit))
 
   app.use((_request, response) => {
     response.status(404).json({ error: 'Route not found.' })

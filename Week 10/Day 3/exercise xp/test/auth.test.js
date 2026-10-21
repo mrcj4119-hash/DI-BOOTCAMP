@@ -14,6 +14,7 @@ let database
 let app
 let agent
 let accessToken
+let originalRefreshToken
 
 const credentials = {
   username: 'reader_01',
@@ -42,6 +43,8 @@ test('registration validates input, hashes password, and issues HttpOnly refresh
   assert.equal(response.body.user.username, credentials.username)
   assert.equal(typeof response.body.accessToken, 'string')
   assert.match(response.headers['set-cookie'][0], /HttpOnly/i)
+  originalRefreshToken = response.headers['set-cookie'][0].match(/refreshToken=([^;]+)/)?.[1]
+  assert.ok(originalRefreshToken)
   assert.notEqual(
     database.prepare('SELECT password_hash FROM users WHERE username = ?')
       .get(credentials.username).password_hash,
@@ -79,17 +82,13 @@ test('protected profile route requires an access token and allows profile update
 })
 
 test('refresh rotates cookie token and rejects reuse of the previous token', async () => {
-  const oldCookie = agent.jar.getCookie('refreshToken', 'http://127.0.0.1/api/auth')
-  const oldToken = oldCookie?.value
-  assert.ok(oldToken)
-
   const refreshed = await agent.post('/api/auth/refresh')
   assert.equal(refreshed.status, 200)
   assert.notEqual(refreshed.body.accessToken, accessToken)
 
   const replay = await request(app)
     .post('/api/auth/refresh')
-    .set('Cookie', `refreshToken=${oldToken}`)
+    .set('Cookie', `refreshToken=${originalRefreshToken}`)
   assert.equal(replay.status, 401)
 })
 
